@@ -1,0 +1,21 @@
+<div class="message-wrapper">
+    <div class="message-wrapper__form">
+        <form [formGroup]="myForm" (ngSubmit)="submit()">
+            <div>
+                <span class="message-wrapper__form__label">Texto: </span>
+                <div><textarea id="textInput" formControlName="text"></textarea></div>
+            </div>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <div class="message-wrapper__messages">
+        <div>
+            <p *ngIf="messages.length == 0">Empty here. Send some messages!</p>
+            <div *ngFor="let msg of messages">
+                <div>{{msg.text}}</div>  <small>( Received at: {{msg.sentAt | date: 'short'}} )</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+
